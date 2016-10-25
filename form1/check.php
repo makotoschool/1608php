@@ -6,11 +6,11 @@ if(!isset($_POST['submit'])){
 	exit;
 
 }
+require_once('common.php');
 
-$name = htmlspecialchars($_POST['onamae'],ENT_QUOTES);
-$email = htmlspecialchars($_POST['e-mail'],ENT_QUOTES);
-$msg = htmlspecialchars($_POST['msg'],ENT_QUOTES);
-
+$name=h($_POST['onamae']);
+$email =h($_POST['e-mail']);
+$msg = h($_POST['msg']);
 ?>
 <!DOCTYPE html>
 <html>
