@@ -16,7 +16,7 @@
 			</p>
 			<p>
 				<label for="e-mail">E-mail</label>
-				<input id="e-mail" type="e-mail">
+				<input id="e-mail" type="email">
 			</p>
 			<p>
 				<label for="msg">お問い合わせ内容</label>			
