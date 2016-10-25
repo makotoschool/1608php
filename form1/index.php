@@ -25,7 +25,7 @@
 				<textarea name="msg" id="msg"></textarea>
 			</p>
 			<p>
-				<input type="submit" value="確認">
+				<input name="submit" type="submit" value="確認">
 			</p>	
 		</form>
 	</div>

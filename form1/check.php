@@ -1,4 +1,11 @@
 <?php
+if(!isset($_POST['submit'])){
+	print '直接のアクセスは禁止されております<br>';
+	print '<a href="index.php">トップページに戻る</a>';
+	
+	exit;
+
+}
 
 $name = htmlspecialchars($_POST['onamae'],ENT_QUOTES);
 $email = htmlspecialchars($_POST['e-mail'],ENT_QUOTES);
@@ -35,6 +42,9 @@ $msg = htmlspecialchars($_POST['msg'],ENT_QUOTES);
 			?>
 			<p>
 				<button onclick="history.back()">戻る</button>
+								
+
+
 
 			</p>
 
