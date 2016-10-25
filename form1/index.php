@@ -9,20 +9,20 @@
 <div class="container">
 	<div class="content">
 		<h1>お問い合わせはこちらからどうぞ</h1>
-		<form>
+		<form action="check.php" method="POST">
 			<p>
 				<label for="name">お名前</label>
-				<input id="name" type="text">
+				<input name="onamae" id="name" type="text">
 			</p>
 			<p>
 				<label for="e-mail">E-mail</label>
-				<input id="e-mail" type="email">
+				<input name="e-mail" id="e-mail" type="email">
 			</p>
 			<p>
 				<label for="msg">お問い合わせ内容</label>			
 			</p>
 			<p>
-				<textarea id="msg"></textarea>
+				<textarea name="msg" id="msg"></textarea>
 			</p>
 			<p>
 				<input type="submit" value="確認">
