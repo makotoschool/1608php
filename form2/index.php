@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,22 +15,31 @@ session_start();
 		<p>（セッションを使って）</p>
 		<form action="check.php" method="POST">
 			<p>
-				<label for="name">お名前</label>
-				<input name="onamae" id="name" type="text" <?php 
-					if(isset($_SESSION['name'])){
+			<label for="name">お名前</label>
+			<input name="onamae" id="name" type="text" <?php 
+				if(isset($_SESSION['name'])){
 						print 'value="'.$_SESSION['name'].'"';
 					}
-				?>>
+			?>>
 			</p>
 			<p>
 				<label for="e-mail">E-mail</label>
-				<input name="e-mail" id="e-mail" type="email">
+				<input name="e-mail" id="e-mail" type="email" <?php 
+					if(isset($_SESSION['email'])){
+						print 'value="'.$_SESSION['email'].'"';
+					}
+
+				?>>
 			</p>
 			<p>
 				<label for="msg">お問い合わせ内容</label>			
 			</p>
 			<p>
-				<textarea name="msg" id="msg"></textarea>
+				<textarea name="msg" id="msg"><?php 
+						if(isset($_SESSION['msg'])){
+								print $_SESSION['msg'];
+							}
+					?></textarea>
 			</p>
 			<p>
 				<input name="submit" type="submit" value="確認">
