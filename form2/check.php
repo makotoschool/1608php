@@ -13,7 +13,9 @@ require_once('common.php');
 
 $name=h($_POST['onamae']);
 $email =h($_POST['e-mail']);
-$msg = h($_POST['msg']);
+$msg = nl2br($_POST['msg']);
+$msg=strip_tags($msg,'<br>');
+
 //セッション変数を定義し代入
 $_SESSION['name']=$name;
 $_SESSION['email']=$email;

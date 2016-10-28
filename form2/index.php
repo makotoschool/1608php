@@ -36,9 +36,15 @@ session_start();
 			</p>
 			<p>
 				<textarea name="msg" id="msg"><?php 
-						if(isset($_SESSION['msg'])){
-								print $_SESSION['msg'];
-							}
+				if(isset($_SESSION['msg'])){
+							//print $_SESSION['msg'];
+					print str_replace('<br />','',$_SESSION['msg']);
+					/*
+					システムの改行はバックスラッシュ+n
+					バックスラッシュがwinでは￥になるため
+					<br />を空白に置き換える　で代用
+					*/
+				}
 					?></textarea>
 			</p>
 			<p>
