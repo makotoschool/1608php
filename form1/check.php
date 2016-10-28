@@ -47,6 +47,9 @@ $msg = h($_POST['msg']);
 				
 				<?php if($name!=''&& $email!='' && $msg!=''):?>
 					<form action="thanks.php" method="POST">
+					<input name="name2" type="hidden" value="<?php print $name;?>">
+					<input name="email2" type="hidden" value="<?php print $email; ?>">
+					<input name="msg2" type="hidden" value="<?php print $msg ;?>">	
 					<input type="submit">								
 					</form>
 				<?php endif ;?>
