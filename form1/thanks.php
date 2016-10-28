@@ -1,5 +1,5 @@
 <?php
-/*
+
 if(!isset($_POST['submit'])){
 	print '直接のアクセスは禁止されております<br>';
 	print '<a href="index.php">トップページに戻る</a>';
@@ -7,7 +7,7 @@ if(!isset($_POST['submit'])){
 	exit;
 
 }
-*/
+
 
 require_once('common.php');
 $name=h($_POST['name2']);
@@ -30,13 +30,14 @@ $msg=h($_POST['msg2']);
 		<p>	お問い合わせ内容は以下の通りです</p>
 		<hr>
 		<dl>
-		<dt>【お名前】</dt>
-		<dd><?php print $name?></dd>
-		<dt>【メールアドレス】</dt>
-		<dd><?php print $email?></dd>
+			<dt>【お名前】</dt>
+			<dd><?php print $name?></dd>
+			<dt>【メールアドレス】</dt>
+			<dd><?php print $email?></dd>
 		<dt>【問い合わせ内容】</dt>	
 		<dd><?php print $msg; ?></dd>	
 		</dl>
+		<button onclick="location.href='index.php'">トップページに戻る</button>
 
 
 
