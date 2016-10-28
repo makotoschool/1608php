@@ -14,6 +14,10 @@ require_once('common.php');
 $name=h($_POST['onamae']);
 $email =h($_POST['e-mail']);
 $msg = h($_POST['msg']);
+//セッション変数を定義し代入
+$_SESSION['name']=$name;
+$_SESSION['email']=$email;
+$_SESSION['msg']=$msg;
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,7 +48,7 @@ $msg = h($_POST['msg']);
 					}
 			?>
 			<p>
-				<button onclick="history.back()">戻る</button>
+				<button onclick="location.href='index.php'">戻る</button>
 				
 				<?php if($name!=''&& $email!='' && $msg!=''):?>
 					<form action="thanks.php" method="POST">

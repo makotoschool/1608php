@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +19,11 @@
 		<form action="check.php" method="POST">
 			<p>
 				<label for="name">お名前</label>
-				<input name="onamae" id="name" type="text">
+				<input name="onamae" id="name" type="text" <?php 
+					if(isset($_SESSION['name'])){
+						print 'value="'.$_SESSION['name'].'"';
+					}
+				?>>
 			</p>
 			<p>
 				<label for="e-mail">E-mail</label>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if(!isset($_POST['submit'])){
 	print '直接のアクセスは禁止されております<br>';
@@ -8,13 +9,9 @@ if(!isset($_POST['submit'])){
 
 }
 
-
 require_once('common.php');
-$name=h($_POST['name2']);
-$email=h($_POST['email2']);
-$msg=h($_POST['msg2']);
 
-
+//$name=h($_SESSION['name']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,11 +28,11 @@ $msg=h($_POST['msg2']);
 		<hr>
 		<dl>
 			<dt>【お名前】</dt>
-			<dd><?php print $name?></dd>
+			<dd><?php print h($_SESSION['name']); ?></dd>
 			<dt>【メールアドレス】</dt>
-			<dd><?php print $email?></dd>
-		<dt>【問い合わせ内容】</dt>	
-		<dd><?php print $msg; ?></dd>	
+			<dd><?php print h($_SESSION['email']); ?></dd>
+			<dt>【問い合わせ内容】</dt>	
+			<dd><?php print h($_SESSION['msg']); ?></dd>	
 		</dl>
 		<button onclick="location.href='index.php'">トップページに戻る</button>
 
