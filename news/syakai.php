@@ -1,7 +1,7 @@
 <?php
 //リクエストをする
 $request = 'http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8
-&output=rss';
+&output=rss&topic=y&num=5';
  
 $result=simplexml_load_file($request);
 /*
