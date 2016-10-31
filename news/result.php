@@ -1,15 +1,13 @@
 <?php
+
+//フォームから送信されたデータを受ける
+$word = htmlspecialchars($_POST['word'],ENT_QUOTES);
+
 //リクエストをする
 $request = 'http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8
-&output=rss';
- 
+&output=rss&topic=y&num=500';
 $result=simplexml_load_file($request);
-/*
-echo '<pre>';
-print_r($result);
 
-echo '</pre>';
-*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,21 +30,25 @@ echo '</pre>';
 
 		</ul>
 	</nav>
-	<div class="search">
-		<form action="result.php" method="POST">
-			<input type="text" name="word">
-			<input type="submit" value="トップニュースから検索する">	
-		</form>
-	</div>
+
 	<div class="content">
-		<h2>トップニュース</h2>
+		<h2>検索結果</h2>
 		<?php
-			foreach($result->channel->item as $item):?>
-				<div class="box">
-				<a href="<?php echo $item->link ;?>" target="blank"><h2><?php echo $item->title; ?></h2></a>	
-				<p><?php echo $item->description; ?></p>
-				</div>
-			<?php endforeach; ?>
+			foreach($result->channel->item as $item):
+				$search = mb_strpos($item->title,$word,0,'UTF-8');	
+				if($search!==false):?>
+					<div class="box">
+					<a href="<?php echo $item->link ;?>" target="blank">
+						<h2><?php echo $item->title; ?></h2>
+					</a>	
+					<p><?php echo $item->description; ?></p>
+					</div>
+				<?php else: ?>
+					<h2>検索にタイトルが一致するニュースはありません</h2>
+				<?php exit; ?>
+
+				<?php endif; ?>
+		<?php endforeach;	?>
 
 	</div>
 </div>
