@@ -1,12 +1,10 @@
 <?php
 if(isset($_GET['top_val'])){
-$val=htmlspecialchars($_GET['top_val'],ENT_QUOTES);
+	$val=htmlspecialchars($_GET['top_val'],ENT_QUOTES);
 
-$url='http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=rss&topic='.$val.'&num=100';
-
+	$url='http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=rss&topic='.$val.'&num=100';
+	$obj=simplexml_load_file($url);
 }
-
-$obj=simplexml_load_file($url);
 
 
 
@@ -33,12 +31,13 @@ $obj=simplexml_load_file($url);
 	</nav>	
 	<div class="content">
 		<?php
-			foreach($obj->channel->item as $item){
-				echo '<h2>'.$item->title.'</h2>';
-				echo '<p>'.$item->description.'</p>';
+			if(isset($_GET['top_val'])){
 
+				foreach($obj->channel->item as $item){
+					echo '<h2>'.$item->title.'</h2>';
+					echo '<p>'.$item->description.'</p>';
 
-
+				}
 			}
 
 		
