@@ -7,11 +7,21 @@ class Product {
 //設定	
 	public function setName($val){
 		$this->name=$val;
+		
 	}
+	
+	public function setPrice($val){
+		$this->price=$val;
+	}
+
 
 //取得
 	public function getName(){
 		return $this->name;
+	}
+
+	public function getPrice(){
+		return $this->price;
 	}
 
 
@@ -19,9 +29,11 @@ class Product {
 
 $sanma = new Product;
 $sanma->setName('さんま');
+$sanma->setPrice(198);
 
 $tai=new Product;
 $tai->setName('鯛');
+$tai->setPrice(789);
 
 
 ?>
@@ -37,9 +49,9 @@ $tai->setName('鯛');
 <body>
 <div class="container">
 	<div class="content">
-		<?php echo $sanma->getName();  ?>
+		<?php echo $sanma->getName().$sanma->getPrice().'円';  ?>
 		<hr>
-		<?php echo $tai->getName(); ?>
+		<?php echo $tai->getName(). $tai->getPrice().'円';?>
 
 	</div>
 </div>
