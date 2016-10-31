@@ -2,13 +2,26 @@
 //オブジェクト(設計図)を作る
 class Product {
  //商品名
-	public $name='さんま';
-	public $price=250;
+	private $name;
+	private $price;
+//設定	
+	public function setName($val){
+		$this->name=$val;
+	}
+
+//取得
+	public function getName(){
+		return $this->name;
+	}
+
 
 }
 
-$obj = new Product;
+$sanma = new Product;
+$sanma->setName('さんま');
 
+$tai=new Product;
+$tai->setName('鯛');
 
 
 ?>
@@ -24,7 +37,9 @@ $obj = new Product;
 <body>
 <div class="container">
 	<div class="content">
-		<?php echo $obj->name.$obj->price.'円';  ?>
+		<?php echo $sanma->getName();  ?>
+		<hr>
+		<?php echo $tai->getName(); ?>
 
 	</div>
 </div>
