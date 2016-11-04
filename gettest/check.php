@@ -1,5 +1,6 @@
 <?php
 $val = $_GET['data'];
+$val2= $_GET['data2']
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +13,7 @@ $val = $_GET['data'];
 </head>
 <body>
 <?php
-	echo $val; 
+	echo $val.'と'.$val2; 
 
 ?>
 </body>

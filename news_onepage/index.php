@@ -20,6 +20,8 @@ $word=array(
 	'w'=>'国際'
 );
 
+$more=htmlspecialchars($_GET['more'],ENT_QUOTES)
+
 }
 
 
@@ -82,6 +84,9 @@ echo '</pre>';
 				<p><?php echo $item->description; ?></p>
 				</div>
 			<?php endforeach; ?>
+		<?php if(isset($_GET['news'])): ?>
+			<a href="index.php?">もっと見る</a>
+		<?php endif; ?>
 
 	</div>
 </div>
