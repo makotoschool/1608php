@@ -1,8 +1,24 @@
 <?php
+$w='ir';
 
-if(isset($_GET['news'])){
+/*
+GETで受ける変数が一つの場合
+isset($_GET['news'])
+複数ある場合
+$_SERVER['REQUEST_METHOD']==='GET'
+もしGET送信で何か送られて来れば
+*/
+
+if($_SERVER['REQUEST_METHOD']==='GET'){
 $w=htmlspecialchars($_GET['news'],ENT_QUOTES);
 
+$word=array(
+	'ir'=>'トップ',
+	'y'=>'社会',
+	's'=>'スポーツ',
+	'e'=>'エンタメ',
+	'w'=>'国際'
+);
 
 }
 
@@ -48,9 +64,19 @@ echo '</pre>';
 		</form>
 	</div>
 	<div class="content">
-		<h2>トップニュース</h2>
-		<?php
-			foreach($result->channel->item as $item):?>
+		<h2><?php 
+			if(isset($_GET['news'])){
+				
+				echo $word[$w];
+
+			}else{
+				echo 'トップ';
+			}
+
+		?>
+		ニュース</h2>
+
+		<?php foreach($result->channel->item as $item):?>
 				<div class="box">
 				<a href="<?php echo $item->link ;?>" target="blank"><h2><?php echo $item->title; ?></h2></a>	
 				<p><?php echo $item->description; ?></p>
