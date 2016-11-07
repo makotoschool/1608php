@@ -9,6 +9,8 @@ define('PASSWD','@Pass2222');
 
 try{
 $dbh = new PDO(DSN,USR,PASSWD);
+//DBの文字コード指定
+$dbh->query('SET NAMES utf8 ');
 
 }catch(PDOException $e){
 echo '接続エラー<br>';

@@ -1,11 +1,9 @@
 <?php
-require_once('./lib/dbh.php');
-
-
-
-
-
+//DBに接続
+require_once(__DIR__.'./lib/dbh.php');
 //sqlを発行する
+
+$stmt = $dbh->query('SELECT * FROM bbs1');
 
 ?>
 <!DOCTYPE html>
@@ -21,9 +19,15 @@ require_once('./lib/dbh.php');
 <div class="container">
 	<h1>投稿一覧</h1>
 	<div class="content">
+		<?php
+			foreach($stmt as $row){
+				echo $row['name'].'<br>';
 
 
+			}
 
+
+		?>
 	</div>
 </div>
 </body>
