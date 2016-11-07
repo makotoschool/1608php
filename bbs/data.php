@@ -1,21 +1,11 @@
 <?php
-session_start();
-
-//直アクセス禁止のしくみ
-if($_SERVER['REQUEST_METHOD']==='POST'){
-$name=$_SESSION['name'];
-$msg=$_SESSION['msg'];
+require_once('./lib/dbh.php');
 
 
 
-}else{
-echo '直アクセスは禁止です';
-exit;
-
-}
 
 
-
+//sqlを発行する
 
 ?>
 <!DOCTYPE html>
@@ -25,14 +15,14 @@ exit;
 <link type="text/css" rel="stylesheet" href="./css/main.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="./js/main.js"></script>
-<title>入力チェック</title>
+<title>一覧表示</title>
 </head>
 <body>
 <div class="container">
-	<h1>投稿完了</h1>
+	<h1>投稿一覧</h1>
 	<div class="content">
-		<p>正常に投稿できました</p>
-		
+
+
 
 	</div>
 </div>
