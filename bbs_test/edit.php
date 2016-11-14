@@ -35,7 +35,7 @@ $stmt->execute(array($id));
 			</p>
 			<input type="hidden" name="edit_id" value="<?php echo $id;?>">
 			<input type="submit" value="決定">
-			<button type="button" onclick="location.href='data.php'">一覧に戻る</button>	
+			<button type="button" onclick="location.href='index.php'">一覧に戻る</button>	
 		</form>
 	<?php endforeach; ?>
 	</div>
