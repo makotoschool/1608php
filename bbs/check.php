@@ -40,7 +40,7 @@ exit;
 			【メッセージ内容】<br>
 			<?php echo $msg;?>
 			</p>
-			<button onclick="history.back();">戻る</button>
+			<button type="button" onclick="history.back();">戻る</button>
 			
 			<input type="submit" value="投稿">
 		</form>

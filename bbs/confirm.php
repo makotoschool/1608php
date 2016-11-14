@@ -1,12 +1,16 @@
 <?php
 session_start();
-
 //直アクセス禁止のしくみ
 if($_SERVER['REQUEST_METHOD']==='POST'){
 $name=$_SESSION['name'];
 $msg=$_SESSION['msg'];
-
-
+require_once(__DIR__.'./lib/dbh.php');
+//DBにSQL発行
+$stmt=$dbh->prepare('INSERT INTO bbs1(name,msg) VALUES(:name,:msg)');
+$stmt->execute(array(
+				':name'=>$name,			
+				':msg'=>$msg
+				));
 
 }else{
 echo '直アクセスは禁止です';
