@@ -3,10 +3,16 @@ $name=htmlspecialchars($_POST['edit_name'],ENT_QUOTES);
 $id=htmlspecialchars($_POST['edit_id'],ENT_QUOTES);
 $msg=nl2br($_POST['edit_msg']);//\nを<br>に変換
 $msg=strip_tags($msg,'<br>');//<br>以外は無効
-
-print_r($id);
 //DBに接続
-//SQL発行
+require_once(__DIR__.'./lib/dbh.php');
+//SQL発行 指定行データの内容を上書き
+$stmt=$dbh->prepare('UPDATE bbs1 SET name=:name,msg=:msg WHERE id=:id');
+$stmt->execute(array(
+				':name'=>$name,
+				':msg'=>$msg,
+				':id'=>$id
+				));
+
 ?>
 <!DOCTYPE html>
 <html>
