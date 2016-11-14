@@ -33,9 +33,9 @@ $stmt->execute(array($id));
 			<p>投稿内容<br>
 			<textarea name="edit_msg"><?php echo str_replace('<br />','',$row['msg']);?></textarea>
 			</p>
-			<input type="hidden" name="edit_id" value="<?php echo $id;?>">
+			<input type="hidden" name="edit_id" value="<?php echo $row['id'];?>">
 			<input type="submit" value="決定">
-			<button type="button" onclick="location.href='index.php'">一覧に戻る</button>	
+			<button type="button" onclick="location.href='data.php'">一覧に戻る</button>	
 		</form>
 	<?php endforeach; ?>
 	</div>

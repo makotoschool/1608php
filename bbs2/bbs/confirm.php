@@ -36,7 +36,6 @@ exit;
 	<h1>投稿完了</h1>
 	<div class="content">
 		<p>正常に投稿できました</p>
-		<button type="button" onclick="location.href='index.php'">一覧に戻る</button>
 		
 
 	</div>

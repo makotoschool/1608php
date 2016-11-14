@@ -20,7 +20,11 @@
 			</p>
 			<input type="submit" value="投稿確認">	
 		</form>
-		<?php require_once(__DIR__.'./data.php');?>
+		<div class="msgbord">
+
+			<?php require_once(__DIR__.'./data.php');?>
+
+		</div>
 	</div>
 </div>
 </body>
