@@ -26,14 +26,15 @@ $stmt->execute(array($id));
 
 	<div class="content">
 	<?php foreach($stmt as $row):?>
-		<form action="" method="post">
+		<form action="edit_confirm.php" method="post">
 			<p>お名前<br>
-			<input name="name" type="text" value="<?php echo $row['name'];?>">
+			<input name="edit_name" type="text" value="<?php echo $row['name'];?>">
 			</p>
 			<p>投稿内容<br>
-			<textarea name="msg"></textarea>
+			<textarea name="edit_msg"><?php echo str_replace('<br />','',$row['msg']);?></textarea>
 			</p>
-			<input type="submit" value="投稿確認">	
+			<input type="submit" value="決定">
+			<button type="button" onclick="location.href='data.php'">一覧に戻る</button>	
 		</form>
 	<?php endforeach; ?>
 	</div>
