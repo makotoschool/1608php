@@ -1,13 +1,20 @@
 <?php
 $status='none';
-if(isset($_POST['username'])){
-print_r($_POST['username'].'</br>');
-print_r($_POST['password']);
+if(isset($_POST['username']) && isset($_POST['password'])){
+$username=htmlspecialchars($_POST['username'],ENT_QUOTES);
+$password=htmlspecialchars($_POST['password'],ENT_QUOTES);
+require_once('dbh.php');
+$stmt=$dbh->prepare('SELECT count(*) FROM usrlist WHERE name=? AND pass=?');
+$stmt->execute(array($username,$password));
+//echo '条件に合致する行数'.$stmt->fetchColumn();
 
+	if($stmt->fetchColumn()==1){
+		$status='ok';
 
+	}else{
+		$status='failed';
+	}
 }
-
-
 
 ?>
 <!DOCTYPE html>
