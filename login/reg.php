@@ -1,13 +1,17 @@
 <?php
 $status='no';
 if(isset($_POST['username'])){
-$username=htmlspecialchars($_POST['username'],ENT_QUOTES);
-$password=htmlspecialchars($_POST['password'],ENT_QUOTES);
+	$username=htmlspecialchars($_POST['username'],ENT_QUOTES);
+	$password=htmlspecialchars($_POST['password'],ENT_QUOTES);
+	require_once('dbh.php');
+	$stmt=$dbh->prepare('INSERT INTO usrlist VALUES(?,?)');
+	if($stmt->execute(array($username,$password))){
+		$status='ok';	
 
-require_once('dbh.php');
+	}else{
+		$status='failed';
 
-
-
+	}
 
 }
 

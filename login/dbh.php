@@ -5,9 +5,9 @@ define('DB_USER','root');
 define('DB_PASSWORD','@Pass2222');
 try{
 $dbh=new PDO(DSN,DB_USER,DB_PASSWORD);
-echo '接続できました';
+//echo '接続できました';
 }catch(PDOException $e){
-echo '接続エラー'.getMessage();
+echo '接続エラー'.$e->getMessage();
 exit();
 }
 
