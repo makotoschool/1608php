@@ -5,15 +5,13 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 //$error_msg='画像ファイルをアップしてください';
 //ファイルのサイズ（容量）
 if(isset($_FILES['up_file']['tmp_name'])){
- echo 'うまくいってるよ';
-
-/*
-	if($_FILES['up_file']['size']>1024){
-		$error_msg='ファイルの上限は1Mです';
-
+	$maxsize=1024*1024*1;
+	$tmpfile=pathinfo($_FILES['up_file']['name']);
+	var_dump($tmpfile['extension']);
+	if($_FILES['up_file']['size']>$maxsize){
+		$error_msg='ファイルの上限を超えました';
+	
 	}
-
-*/
 }
 
 
