@@ -28,8 +28,10 @@ if(isset($_FILES['up_file']['tmp_name'])){
 			$stmt=$dbh->prepare('INSERT INTO file_info(title,path) VALUES(?,?)');
 			$stmt->execute(array($title,$filename));
 			$dbh=null;
-			
-	}
+			//ブラウザのリロードでデータがもう一度送信されてしまうのを防ぐ
+			//強制的にリクエストを送信（もう一度index.phpをリクエスト、新しい接続を作る）	
+			header('Location:http://127.0.0.1/1608/upload');
+		}
 }
 
 }
