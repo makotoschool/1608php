@@ -12,25 +12,25 @@ if(isset($_FILES['up_file']['tmp_name'])){
 	if($_FILES['up_file']['size']>$maxsize){
 		//ファイルのサイズ（容量）チェック
 		$error_msg='ファイルの上限を超えました';	
-	}else if($tmpfile['extension']!=='jpg'){
-		//拡張子チェック
+	}else if($tmpfile['extension']!=='jpg'&& $tmpfile['extension']!=='jpeg'){
+
 		$error_msg='ファイルの種類が違います';
 
 	}else{
-		//ファイルを一時保存の場所から移動（ファイル名も変更）
 
 		$filename='upload_'.time().'.'.$tmpfile['extension'];
 		move_uploaded_file($_FILES['up_file']['tmp_name'],'./img/'.$filename);
+		$title=htmlspecialchars($_POST['title'],ENT_QUOTES);
 
+		//db接続
+			require_once(__DIR__.'./dbh.php');	
+		//sql発行
+			$stmt=$dbh->prepare('INSERT INTO file_info(title,path) VALUES(?,?)');
+			$stmt->execute(array($title,$filename));
+			$dbh=null;
+			
 	}
 }
-
-
-
-
-
-
-
 
 }
 ?>
