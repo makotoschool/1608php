@@ -1,8 +1,15 @@
 <?php
+session_start();
 $status='none';
-if(isset($_POST['username']) && isset($_POST['password'])){
+
+if(isset($_SESSION['username'])){
+	$status='logged_in';
+}else if(isset($_POST['username']) && isset($_POST['password'])){
 $username=htmlspecialchars($_POST['username'],ENT_QUOTES);
 $password=htmlspecialchars($_POST['password'],ENT_QUOTES);
+$salt='test';
+$password=md5($password,$salt);
+
 require_once('dbh.php');
 $stmt=$dbh->prepare('SELECT count(*) FROM usrlist WHERE name=? AND pass=?');
 $stmt->execute(array($username,$password));
@@ -10,6 +17,7 @@ $stmt->execute(array($username,$password));
 
 	if($stmt->fetchColumn()==1){
 		$status='ok';
+		$_SESSION['username']=$username;
 
 	}else{
 		$status='failed';
@@ -30,7 +38,9 @@ $stmt->execute(array($username,$password));
 		<h1>ログイン</h1>
 		<?php if($status=='logged_in'): ?>
 			<p>ログイン済み</p>
+			<a href="logout.php">ログアウト</a>
 			<p>以下表示コンテンツ</p>
+
 		<?php elseif($status=='ok'): ?>
 			<p>ログイン成功</p>
 			<p>以下表示コンテンツ</p>

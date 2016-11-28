@@ -3,7 +3,11 @@ $status='no';
 if(isset($_POST['username'])){
 	$username=htmlspecialchars($_POST['username'],ENT_QUOTES);
 	$password=htmlspecialchars($_POST['password'],ENT_QUOTES);
+	$salt='test';
+	$password=md5($password,$salt);
+		//$password=md5($password);
 	require_once('dbh.php');
+	$dbh->query('SET NAMES utf8');
 	$stmt=$dbh->prepare('INSERT INTO usrlist VALUES(?,?)');
 	if($stmt->execute(array($username,$password))){
 		$status='ok';	
