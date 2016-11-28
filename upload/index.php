@@ -3,21 +3,26 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 
 //チェックしたい
 //$error_msg='画像ファイルをアップしてください';
-//ファイルのサイズ（容量）
+
 if(isset($_FILES['up_file']['tmp_name'])){
-	$maxsize=1024*1024*1;
-	$tmpfile=pathinfo($_FILES['up_file']['name']);
-	var_dump($tmpfile['extension']);
-	if($_FILES['up_file']['size']>$maxsize){
-		$error_msg='ファイルの上限を超えました';
 	
+	$maxsize=1024*1024*1;
+	$tmpfile=pathinfo($_FILES['up_file']['name']);//ファイル名情報取得
+
+	if($_FILES['up_file']['size']>$maxsize){
+		//ファイルのサイズ（容量）チェック
+		$error_msg='ファイルの上限を超えました';	
+	}else if($tmpfile['extension']!=='jpg'){
+		//拡張子チェック
+		$error_msg='ファイルの種類が違います';
+
 	}
 }
 
 
 
 
-//ファイルの拡張子
+
 
 
 
