@@ -16,6 +16,12 @@ if(isset($_FILES['up_file']['tmp_name'])){
 		//拡張子チェック
 		$error_msg='ファイルの種類が違います';
 
+	}else{
+		//ファイルを一時保存の場所から移動（ファイル名も変更）
+
+		$filename='upload_'.time().'.'.$tmpfile['extension'];
+		move_uploaded_file($_FILES['up_file']['tmp_name'],'./img/'.$filename);
+
 	}
 }
 
