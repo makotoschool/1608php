@@ -58,9 +58,12 @@ if(isset($_FILES['up_file']['tmp_name'])){
 				}
 			?>
 			<input type="submit" value="投稿する">
-
-
 		</form>
+		<div class="image_area">
+			<?php require_once(__DIR__.'./post.php'); ?>
+
+
+		</div>
 	</div>
 </div>
 </body>
