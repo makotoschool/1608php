@@ -59,7 +59,7 @@ echo '</pre>';
 		</nav>
 		<div class="post">
 			<?php echo $pager->isLastPage()?'最後のページです':'';?>
-			<?php echo $pager->isFastPage()?'最後のページです':'';?>
+			<?php echo $pager->isFirstPage()?'最初のページです':'';?>
 			<?php foreach($data as $msg):?>
 				<h2><?php echo $msg['title'];?></h2>
 				<p><?php echo $msg['content'];?></p>
