@@ -74,4 +74,11 @@ height:100px;
 
 }
 
+.pager{
+height:40px;
+padding-top:20px;
+}
 
+.pager_info{
+font-size:0.8rem;
+}

@@ -1,7 +1,6 @@
 <?php
 require_once('Pager/Pager.php');
 
-
 //実験用のデータ（配列）を作る
 for($i=0;$i<100;$i++){
 $item[$i]['title']=$i.'番目のタイトル';

@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.clearfix:after{
+content:".";
+display:block;
+height:0px;
+clear:both;
+visibility:hidden;
+}
+
+.clear{
+clear:both;
+}
+
+div{
+box-sizing:border-box;
+}
+
+.container{
+width:60%;
+min-width:600px;
+margin:50px auto;
+box-sizing:border-box;
+padding:20px;
+
+}
+
+.container h1 {
+text-align:center;
+
+}
+
+.msg{
+
+margin-bottom:20px;
+padding:10px 20px 20px 20px;
+-webkit-box-shadow: 1px 1px 9px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    1px 1px 9px 0px rgba(50, 50, 50, 0.75);
+box-shadow:         1px 1px 9px 0px rgba(50, 50, 50, 0.75);
+}
+
+.msg h2{
+border-bottom:1px solid #ccc;
+padding-bottom:5px;
+color:#276CDB;
+}
+
+.msg p{
+font-size:1.3rem;
+line-height:1.8em;
+}
+
+
+
+
+
