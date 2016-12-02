@@ -17,7 +17,9 @@ echo '</pre>';
 //パラメーターを設定
 $params=array(
 	'itemData'=>$item,
-	'perPage'=>20
+	'perPage'=>20,
+	'prevImg' => '前へ',
+	'nextImg'=> '次へ'
 
 
 );
@@ -29,7 +31,7 @@ $navi=$pager->getLinks();//ナビゲーション
 $data=$pager->getPageData();
 /*
 echo '<pre>';
-var_dump($navi);
+var_dump($data);
 echo '</pre>';
 */
 ?>
@@ -45,11 +47,26 @@ echo '</pre>';
 	<h1>ページング練習</h1>
 	<div class="content">
 		<nav>
-			<?php echo $navi['all'];?>
+			<?php echo $navi['all'];?><br>
+			<?php echo $pager->numItems( );?>件中
+			<?php 
+				$clientpage=$pager->getOffsetByPageId();
+				//var_dump($clientpage);
+				echo $clientpage[0]-1;
+			?>番目から
+			<?php echo $clientpage[1];?>番目を表示
+			
+
 		</nav>
+		<div class="post">
+			<?php echo $pager->isLastPage()?'最後のページです':'';?>
+			<?php echo $pager->isFastPage()?'最後のページです':'';?>
+			<?php foreach($data as $msg):?>
+				<h2><?php echo $msg['title'];?></h2>
+				<p><?php echo $msg['content'];?></p>
 
-
-
+			<?php endforeach; ?>
+		</div>	
 	</div>
 </div?
 </body>
