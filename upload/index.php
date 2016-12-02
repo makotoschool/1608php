@@ -4,7 +4,7 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
 //チェックしたい
 //$error_msg='画像ファイルをアップしてください';
 
-if(isset($_FILES['up_file']['tmp_name'])){
+if(isset($_FILES['up_file']['tmp_name']) && $_FILES['up_file']['tmp_name']!==''){
 	
 	$maxsize=1024*1024*1;
 	$tmpfile=pathinfo($_FILES['up_file']['name']);//ファイル名情報取得
@@ -42,6 +42,11 @@ if(isset($_FILES['up_file']['tmp_name'])){
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="style.css">
 <title>画像ファイルアップロード</title>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+
+</script>
 </head>
 <body>
 <div class="container">
@@ -59,7 +64,7 @@ if(isset($_FILES['up_file']['tmp_name'])){
 			?>
 			<input type="submit" value="投稿する">
 		</form>
-		<div class="image_area">
+		<div class="image_area clearfix">
 			<?php require_once(__DIR__.'./post.php'); ?>
 
 
