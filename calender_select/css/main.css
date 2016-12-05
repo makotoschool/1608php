@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+div,table,h1,h2,h3,h4,h5,h6,p{
+box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+.clearfix:after{
+content:".";
+display:block;
+height:0px;
+clear:both;
+visibility:hidden;
+}
+
+.clear{
+clear:both;
+}
+
+.order_calendar{
+    padding-top:20px;
+    text-align: center;
+}
+
+
+.order_calendar .head{
+display: inline-block;
+color: #47a3da;
+font-size: 1.6rem;
+}
+
+.order_calendar .head td{
+padding:20px;    
+
+}
+
+.order_calendar .head a {
+color: #47a3da;  
+font-size: 1.1rem;
+}
+.order_calendar .body{
+border-collapse: collapse;
+border:solid 6px #47a3da;
+margin:10px auto 0 auto;
+padding:0;
+width:80%;
+
+}
+
+
+.order_calendar .body th,
+.order_calendar .body td{
+   border:solid 2px #47a3da;
+  padding:0;
+  text-align: center;
+  vertical-align: middle;
+  width:30px;
+  height:80px;
+
+}
+
+.order_calendar .body tr th:last-child,
+.order_calendar .body tr td:last-child,
+.order_calendar .body .n-holiday
+{
+    background-color: #ffc9cf;
+}
+
+.order_calendar .body tr th:nth-last-child(2),
+.order_calendar .body tr td:nth-last-child(2)
+{
+    background-color: #dbf7ff;
+}
+
+.order_calendar td:hover{
+    background-color: #FAFFAA;
+    
+    
+}
+
+.selected{
+     background-color: #FAFFAA;
+}
