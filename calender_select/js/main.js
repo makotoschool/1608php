@@ -1,32 +1,48 @@
 $(function(){
     //選んだ日にクラスをつける
     var td=$('#calendar').find('td');
-    
+    var day=Array();
     td.on('click',function(event){
         $(event.target).addClass('selected');
+        day.push($(event.target).text());
         
     });
-    td.on('dblclick',function(event){
+    $('#clear').on('click',function(){
 
-        $(event.target).removeClass('selected');
-        
+        $('.selected').removeClass('selected');
+        day=Array();
     });
     
 
     $('#go').on('click',function(){
-        var day=Array();
+        alert(day);
         
-        var selected=$('#calendar .selected');
-        selected.each(function(){
+        //.selectedがついているtdにidをふる
+        // var selected=$('#calendar .selected');
 
-            var date=selected.text();
-            alert(date);
-            day.push(date);
+        // selected.each(function(i){
+        //     selected.attr('id','check'+i);
+        //     alert(i);
+
+            
+        // });
+        
+        
+        // var day=Array();
+
+    
+        // var selected=$('#calendar .selected');
+  
+        // selected.each(function(i){
+        //     alert(i);
+        //     var date=selected.text();
+        //     alert(date);
+        //     day.push(date);
 
    
-        });
+        // });
 
-        alert(day);
+
        
     });
     

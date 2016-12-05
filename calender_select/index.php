@@ -77,8 +77,14 @@ $start_week = date("N", mktime(0, 0, 0,$m,1,$y));//mktimeで曜日を取得
         ?>
         </tr>
         </table>
+        <button id="clear">選択クリア</button>
         <button id="go">選択日確認</button>
-        <p id="selectedday"></p>
+        <p>
+        <span id="selectedday">
+            
+            
+        </span>
+        </p>
         </div>
 </div>
 </body>
