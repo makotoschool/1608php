@@ -22,26 +22,37 @@ $('#dell').on('click',function(){
 
 var input_data=Array();
 $('#submit').on('click',function(){
-	$('#input').find('p').find('input').each(function(i,elem){
+	var input=$('#input').find('p').find('input');
+	input.each(function(i,elem){
 		input_data.push($(elem).val());
 
 	});
-	$.ajax({
-		url:'data.php',
-		type:'POST'	,
-		data:{
+	if(input.val()!==''){
+		$.ajax({
+			url:'data.php',
+			type:'POST'	,
+			data:{
 			'data':input_data
 
-		}
+			}
 		}).done(function(data){
 
 			$('#data').html(data);
 
-		}).fail(function(){});
-
+		}).fail(function(){
+				alert('送信に失敗しました');
+			});
+	}else{
+		alert('何か入力してね');
+	}
 
 
 });
+		
+
+	
+
+	
 
 
 });
